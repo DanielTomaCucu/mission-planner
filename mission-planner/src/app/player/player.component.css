@@ -3,3 +3,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
+circle {
+  transition: cx 0.9s linear, cy 0.9s linear;
+}

@@ -10,13 +10,15 @@
   </div>
   <div>
     <svg width="400" height="400" style="border: 1px solid black">
+      <!--Static points-->
       <circle
         *ngFor="let point of points"
         [attr.cx]="point.x"
         [attr.cy]="point.y"
-        r="5"
+        r="8"
         fill="red"
       />
+      <!--Static lines-->
       <line
         *ngFor="let line of getLines()"
         [attr.x1]="line.x1"
@@ -24,6 +26,14 @@
         [attr.x2]="line.x2"
         [attr.y2]="line.y2"
         stroke="black"
+      />
+      <!--The Robot, the moving element-->
+       <circle
+        *ngIf="currentIndex >= 0"
+        [attr.cx]="points[currentIndex].x"
+        [attr.cy]="points[currentIndex].y"
+        r="10"
+        fill="green"
       />
     </svg>
     <div>
