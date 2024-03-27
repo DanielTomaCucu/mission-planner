@@ -1,1 +1,12 @@
 <h1>Player page</h1>
+
+<h2>Mission</h2>
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let point of points"
+    >{{ point.id }} {{ point.name }}</mat-list-item
+  >
+</mat-list>
+
+<svg width="400" height="400" style="border: 1px solid black"></svg>
+<button (click)="play()">Play</button>
+<button (click)="stop()">Stop</button>
