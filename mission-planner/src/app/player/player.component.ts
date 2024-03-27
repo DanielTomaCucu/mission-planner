@@ -12,7 +12,7 @@ interface Point {
 })
 export class PlayerComponent {
   points: Point[] = [];
-  
+
   ngOnInit(): void {
     this.loadPointsFromLocalStorage();
   }
@@ -20,6 +20,15 @@ export class PlayerComponent {
   loadPointsFromLocalStorage() {
     const points = localStorage.getItem('points');
     this.points = points ? JSON.parse(points) : [];
+  }
+
+  getLines() {
+    return this.points.slice(1).map((point, i) => ({
+      x1: this.points[i].x,
+      y1: this.points[i].y,
+      x2: point.x,
+      y2: point.y,
+    }));
   }
 
   play() {}
